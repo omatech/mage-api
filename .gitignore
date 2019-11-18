@@ -1,0 +1,10 @@
+build
+composer.lock
+docs/_build
+vendor
+coverage
+.vscode
+.history
+.idea
+.phpunit.result.cache
+.php_cs.cache

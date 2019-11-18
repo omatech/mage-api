@@ -1,0 +1,38 @@
+filter:
+    excluded_paths: [tests/*, src/database/migrations/*]
+checks:
+    php:
+        remove_extra_empty_lines: true
+        remove_php_closing_tag: true
+        remove_trailing_whitespace: true
+        fix_use_statements:
+            remove_unused: true
+            preserve_multiple: false
+            preserve_blanklines: true
+            order_alphabetically: true
+        fix_php_opening_tag: true
+        fix_linefeed: true
+        fix_line_ending: true
+        fix_identation_4spaces: true
+        fix_doc_comments: true
+build:
+    nodes:
+        my-tests-with-coverage:
+            environment:
+                variables:
+                    DB_CONNECTION: 'mysql'
+                    DB_TEST_HOST: '127.0.0.1'
+                    DB_TEST_DATABASE: 'testing'
+                    DB_TEST_USERNAME: 'root'
+                    DB_TEST_PASSWORD: ''
+            services:
+                mysql: 5.7
+            tests:
+                before:
+                    - mysql -e "CREATE DATABASE testing"
+                override:
+                    - php-scrutinizer-run
+                    - command: vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover
+                      coverage:
+                          file: coverage.clover
+                          format: php-clover
