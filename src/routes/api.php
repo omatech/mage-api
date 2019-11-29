@@ -1,7 +1,11 @@
 <?php
 
 Route::namespace('Omatech\Mage\Api\Controllers')
+     ->middleware(['api'])
      ->group(function ($route) {
-         $route->get('/test', 'TestController@testMethod')
-               ->name('test.testMethod');
+         $route->namespace('Auth')
+              ->group(function ($auth) {
+                  $auth->post('/login', 'LoginController@login')
+                       ->name('auth.login');
+              });
      });

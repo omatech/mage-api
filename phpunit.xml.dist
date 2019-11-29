@@ -27,6 +27,7 @@
         <log type="coverage-clover" target="build/logs/clover.xml"/>
     </logging>
     <php>
+        <env name="APP_KEY" value="base64:un2Q9981GosEII//ad299966miXGe6+0oG+pDP1KVsg=" />
         <env name="APP_ENV" value="testing"/>
         <env name="DB_CONNECTION" value="mysql"/>
         <env name="CACHE_DRIVER" value="array"/>

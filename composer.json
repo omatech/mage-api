@@ -17,6 +17,7 @@
         }
     ],
     "require": {
+        "laravel/passport": "^8.0",
         "omatech/mage-core": "dev-master"
     },
     "require-dev": {
@@ -26,7 +27,13 @@
     "autoload": {
         "psr-4": {
             "Omatech\\Mage\\Api\\": "src",
-            "Omatech\\Mage\\Api\\Controllers\\": "src/app/Http/Controllers"
+            "Omatech\\Mage\\Api\\Controllers\\": "src/app/Http/Controllers",
+            "Omatech\\Mage\\Api\\Models\\": "src/app/Models",
+            "Omatech\\Mage\\Api\\Contracts\\": "src/app/Contracts",
+            "Omatech\\Mage\\Api\\Requests\\": "src/app/Http/Requests",
+            "Omatech\\Mage\\Api\\Providers\\": "src/app/Providers",
+            "Omatech\\Mage\\Api\\Domains\\": "src/app/Domains",
+            "Omatech\\Mage\\Api\\Repositories\\": "src/app/Repositories"
         }
     },
     "autoload-dev": {
